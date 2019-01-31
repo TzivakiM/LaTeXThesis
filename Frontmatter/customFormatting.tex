@@ -1,0 +1,19 @@
+%this bit absolutely needs to go after \begin{document}
+%%%%%%%%%%%%%%%%%%%%SETUP COLOUR OF LINKS%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{
+    linkcolor=blue, % color TOC links in blue
+    urlcolor=red, % color URLs in red
+    citecolor=cyan, %Citations in cyan
+    linktoc=all % 'all' will create links for everything in the TOC
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+%this defines the appearance of things like keywords, code etc. Access them through \keyword{}, \file{} etc. Caution: Either use the code environment here (just typesets the code to a different style) or the more elaborate code definition further up.
+% Define some commands to keep the formatting separated from the content 
+\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\tabhead}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{\bfseries#1}}
+\newcommand{\option}[1]{\texttt{\itshape#1}}
+
+%----------------------------------------------------------------------------------------

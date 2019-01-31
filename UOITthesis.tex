@@ -1,0 +1,159 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Adapted to fit (most of) the requirements of the School of Graduate Studies at UOIT by
+% Margarita Tzivaki and
+% Austin Nehring
+%Note: this is not an official template! Your thesis, your responsibility
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\PassOptionsToPackage{draft=false}{scrlayer-scrpage}
+\documentclass[
+12pt, % The default document font size, options: 10pt, 11pt, 12pt
+oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english,
+onehalfspacing, % Single line spacing, alternatives: singlespacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+consistentlayout, % Comment out to change the layout of the declaration, abstract and acknowledgements pages to something more fancy
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+%%%%%%%%%%%%%%%%%%%%GET RID OF RULERS IN DRAFT%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%e
+%used at the start of the document before documentclass declaration
+%\PassOptionsToPackage{draft=false, global}{scrlayer-scrpage}
+
+%%%%%%%%%%%%%%%%%%%%ENCODING AND LANGUAGE PACKAGES%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%%%%%%%%%%%%%%%%%%%%BIBLIOGRAPHY%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[backend=bibtex,style=numeric,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+%\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+\addbibresource{BibFiles/examplebib.bib} % The filename of the bibliography
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+\geometry{
+	papersize={8.5in,11in}, % Change to letterpaper for US letter
+	inner=3.8cm, % Inner margin
+	outer=2.5cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=2.5cm, % Top margin
+	bottom=2.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+	marginpar=3cm
+}
+%%%%%%%%%%%%%%%%%%%CUSTOM DATES%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{datetime}
+
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH] \THEYEAR}
+\newdateformat{yeardate}{%
+	\THEYEAR}
+	
+%----------------------------------------------------------------------------------------
+%	CUSTOM Packages and Commands - not required
+%----------------------------------------------------------------------------------------
+%those are NOT needed to compile the document, unless of course you are using some of the commands
+\include{Frontmatter/customPackages}
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION - required
+%----------------------------------------------------------------------------------------
+\include{Frontmatter/thesisInfo}
+%----------------------------------------------------------------------------------------
+%	START THE DOCUMENT
+%----------------------------------------------------------------------------------------
+%This is how to compile only one chapter: 
+%\includeonly{Chapters/explanations,Frontmatter/customPackages,Frontmatter/customFormatting}
+%You might want to also comment out the list of figures, tables and table of contents
+\begin{document}
+%some custom formatting commands - only required in the explanations chapter (you can take both out)
+\include{Frontmatter/customFormatting}
+%----------------------------------------------------------------------------------------
+%	TITLEPAGE
+%----------------------------------------------------------------------------------------
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+\include{Frontmatter/titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+%	PRELIMINARY PAGES
+%----------------------------------------------------------------------------------------
+\newpage
+\setcounter{page}{2}% This is to force the idiotic numbering system.
+% For the record this should be page i.
+\include{Frontmatter/preliminaryPages}
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+\tableofcontents % Prints the main table of contents
+%maybe put the lists together, no list of constants
+\listoffigures % Prints the list of figures
+\listoftables % Prints the list of tables
+\include{Frontmatter/abbreviations}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+%The first chapter includes explanations on how to use this template
+\include{Chapters/explanations}
+\include{Chapters/Chapter1}
+\include{Chapters/Chapter2} 
+\include{Chapters/Chapter3}
+\include{Chapters/Chapter4}
+%\include{Chapters/explanations} 
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+\include{Appendices/AppendixA}
+%\include{Appendices/AppendixB}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc]
+
+\listoftodos
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
